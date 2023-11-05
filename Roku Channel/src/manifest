@@ -1,0 +1,47 @@
+title=CJFAN TV
+
+major_version=2
+minor_version=0
+build_version=0
+
+mm_icon_focus_hd=pkg:/images/icon_focus_hd.png
+mm_icon_focus_sd=pkg:/images/icon_focus_sd.png
+mm_icon_focus_fhd=pkg:/images/icon_focus_fhd.png
+
+bs_libs_required=roku_ads_lib
+
+splash_screen_fhd=pkg:/images/splash_fhd.jpg
+splash_screen_hd=pkg:/images/splash_hd.jpg
+splash_screen_sd=pkg:/images/splash_sd.jpg
+splash_color=#000000
+
+ui_resolutions=hd
+
+supports_input_launch=1
+
+' Update content feed URL value with url from your account in v3.sermonstudio.net
+
+FEED_URL=https://v3.sermon.net/embeds/roku/directpub?a=072cb949-a994-4282-ba45-3bffb8f83590&r=dcda3d11-5519-485b-820d-a2bb3c278e5e
+
+
+' Update theme elements                                                                             
+' images
+OverhangLogoUri=pkg:/images/logo.png
+backgroundImageURI=pkg:/images/background_image.jpg
+
+'colors
+backgroundColor=#ffffff
+OverhangBackgroundColor=#aaaaaa
+textColor=#000000
+focusRingColor=#​​​​f80000
+progressBarColor=#f68600
+busySpinnerColor=#e64101
+
+
+
+#OverhangTitle=
+#OverhangTitleColor= 
+#OverhangBackgroundUri= 
+
+
+
