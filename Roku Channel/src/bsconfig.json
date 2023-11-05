@@ -1,0 +1,12 @@
+{
+    "files": [
+        //default entries
+        "source/**/*",
+        "components/**/*",
+        "images/**/*",
+        "certs/**/*",
+        "manifest",
+        //your custom entries
+        "deploy/**/*"
+    ]
+}

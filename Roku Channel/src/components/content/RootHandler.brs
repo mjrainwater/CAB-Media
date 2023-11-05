@@ -101,6 +101,11 @@ function parseRokuFeedSpec(xmlString as string) as Object
                 if item = "categories"
                 categoriesArray = []
                 for each categoryarray in value
+                    '! :-) MRainwater - Suspected Change. Not working yet
+                    'if categoryarray.id = value[0].id
+                    '    continue for 
+                    'end if 
+
                     categoriesArray.Push(categoryarray.query)
                 end for
 
@@ -113,11 +118,15 @@ function parseRokuFeedSpec(xmlString as string) as Object
                   
 
                     for each categoryItem in categoriesArray
+
                     children = []
                     for each arrayItem in value
 
                     if arrayItem.tags[0] = categoryItem
                         itemNode = CreateObject("roSGNode", "ContentNode")
+                        '! :-) Rainwater - Remove this line
+                        itemTitle = arrayItem.title
+
                         Utils_ForceSetFields(itemNode, {
                             hdPosterUrl: arrayItem.thumbnail
                             Description: arrayItem.shortDescription

@@ -212,7 +212,7 @@ sub SetDetailsContent(content as Object)
         end if
 
         if m.top.style = "rmp"
-            m.info1.text = content.title
+             m.info1.text = content.title
             info2Text = ConvertToStringAndJoin([content.ReleaseDate, contentDurationString, content.Rating])
             info2Text = info2Text + chr(13) + chr(10)
             info2Text = info2Text + ConvertToStringAndJoin([content.categories])

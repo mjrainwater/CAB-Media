@@ -1,19 +1,26 @@
-title=CJFAN TV
+title=Church At Briargate TV
 
-major_version=2
+major_version=1
 minor_version=0
 build_version=0
 
+# mm_icon_focus_hd -> 290x218
 mm_icon_focus_hd=pkg:/images/icon_focus_hd.png
+# mm_icon_focus_sd -> 246x140
 mm_icon_focus_sd=pkg:/images/icon_focus_sd.png
-mm_icon_focus_fhd=pkg:/images/icon_focus_fhd.png
+# mm_icon_focus_fhd is not required
+# mm_icon_focus_fhd=pkg:/images/icon_focus_hd.jpg
 
 bs_libs_required=roku_ads_lib
 
-splash_screen_fhd=pkg:/images/splash_fhd.jpg
-splash_screen_hd=pkg:/images/splash_hd.jpg
-splash_screen_sd=pkg:/images/splash_sd.jpg
+# splash_screen_fhd -> 1920x1080
+splash_screen_fhd=pkg:/images/splash_fhd.png
+# splash_screen_hd -> 1280x720
+splash_screen_hd=pkg:/images/splash_hd.png
+# splash_screen_sd -> 720x480
+splash_screen_sd=pkg:/images/splash_sd.png
 splash_color=#000000
+splash_min_time=2000
 
 ui_resolutions=hd
 
@@ -21,26 +28,35 @@ supports_input_launch=1
 
 ' Update content feed URL value with url from your account in v3.sermonstudio.net
 
-FEED_URL=https://v3.sermon.net/embeds/roku/directpub?a=072cb949-a994-4282-ba45-3bffb8f83590&r=dcda3d11-5519-485b-820d-a2bb3c278e5e
-
+#FEED_URL=https://v3.sermon.net/embeds/roku/directpub?a=072cb949-a994-4282-ba45-3bffb8f83590&r=dcda3d11-5519-485b-820d-a2bb3c278e5e
+#FEED_URL=https://v3.sermon.net/embeds/roku/directpub?a=87b2ea31-7129-4b6f-899b-7b0aee9d039d&r=fc21ed92-edc6-493e-b824-84c16262ec7a
+FEED_URL=https://v3.sermon.net/embeds/roku/directpub?a=87b2ea31-7129-4b6f-899b-7b0aee9d039d&r=fc21ed92-edc6-493e-b824-84c16262ec7a
 
 ' Update theme elements                                                                             
 ' images
 OverhangLogoUri=pkg:/images/logo.png
-backgroundImageURI=pkg:/images/background_image.jpg
+backgroundImageURI=pkg:/images/background_image.png
 
-'colors
+' original colors
+#backgroundColor=#ffffff
+#OverhangBackgroundColor=#aaaaaa
+#textColor=#000000
+#focusRingColor=#​​​​f80000
+#progressBarColor=#f68600
+#busySpinnerColor=#e64101
+
+
+' New colors
 backgroundColor=#ffffff
-OverhangBackgroundColor=#aaaaaa
-textColor=#000000
-focusRingColor=#​​​​f80000
+OverhangBackgroundColor=#111111
+textColor=#f6f6f6
+focusRingColor=#4111e1
 progressBarColor=#f68600
 busySpinnerColor=#e64101
 
 
-
-#OverhangTitle=
-#OverhangTitleColor= 
+OverhangTitle=Church At Briargate TV
+OverhangTitleColor=#F8F8F8
 #OverhangBackgroundUri= 
 
 

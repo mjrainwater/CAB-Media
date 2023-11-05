@@ -11,7 +11,8 @@ function UserPass__ShowUsernameDialog(username = "" as String) as String
 
     port = CreateObject("roMessagePort")
 
-    dialog = CreateObject("roSGNode", "KeyboardDialog")
+    '! :-) Rainwater (27 Oct 2023): Changed per Static Analysis Results
+    dialog = CreateObject("roSGNode", "StandardKeyboardDialog")
     dialog.title = tr("Please enter your username")
     dialog.text = username
     dialog.buttons = [
@@ -54,7 +55,8 @@ function UserPass__ShowPasswordDialog()
 
     port = CreateObject("roMessagePort")
 
-    dialog = CreateObject("roSGNode", "KeyboardDialog")
+    '! :-) Rainwater (27 Oct 2023): Changed per Static Analysis Results
+    dialog = CreateObject("roSGNode", "StandardKeyboardDialog")
     dialog.title = tr("Please enter your password")
     dialog.keyboard.textEditBox.secureMode = true
     dialog.buttons = [
