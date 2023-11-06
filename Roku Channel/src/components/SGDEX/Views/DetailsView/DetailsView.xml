@@ -150,12 +150,28 @@
                         wrap="true"
                         maxLines="5"
                     />
-
                     <Label
                         id="actors"
                         wrap="false"
                     />
                 </LayoutGroup>
+
+                <!-- MRainwater: Add new LayoutGroup to show the long description field as info4-->
+                <!--
+                <LayoutGroup
+                    id = "newLayout"
+                    itemSpacings="[ 4 ]"
+                    layoutDirection="vert"
+                    horizAlignment="left">
+                    <Label
+                        id="info4"
+                        wrap="true"
+                        maxLines="5"
+                        horizAlign="left"
+                    />
+                </LayoutGroup>
+                -->
+                <!-- MRainwater: End of Changes 29 Oct 2023-->
             </Group>
         </LayoutGroup>
 

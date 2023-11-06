@@ -47,6 +47,9 @@ sub GetContent()
                 Utils_ForceSetFields(itemNode, {
                     hdPosterUrl: "pkg:/images/feed_too_large.jpg"
                     Description: "Feed is too large"
+                    '! MRainwater: Create new field LongDescription
+                    LongDescription: "Feed is too large"
+                    '! MRainwater: End of new lines
                     id: "0"
                     Categories: "Feed is too large"
                     title: "Feed is too large"
@@ -69,6 +72,9 @@ sub GetContent()
                 Utils_ForceSetFields(itemNode, {
                     hdPosterUrl: ""
                     Description: "Cannot obtain Feed"
+                    '! MRainwater: Create new field LongDescription
+                    LongDescription: "Cannot obtain Feed"
+                    '! MRainwater: End of new lines
                     id: "0"
                     Categories: "Cannot obtain Feed"
                     title: "Cannot obtain Feed"
@@ -99,17 +105,16 @@ function parseRokuFeedSpec(xmlString as string) as Object
                 value = json[item]
 
                 if item = "categories"
-                categoriesArray = []
-                for each categoryarray in value
-                    '! :-) MRainwater - Suspected Change. Not working yet
-                    'if categoryarray.id = value[0].id
-                    '    continue for 
-                    'end if 
+                    categoriesIndex = 0
+                    categoriesArray = []
+                    for each categoryarray in value
+                        '! :-) MRainwater - Not changed. This is the place to supress the categories if I want to do this...
 
-                    categoriesArray.Push(categoryarray.query)
-                end for
+                        categoriesArray.Push(categoryarray.query)
+                        categoriesIndex++
+                    end for
 
-                currentCat = categoriesArray[0]
+                    currentCat = categoriesArray[0]
                 end if
 
              
@@ -124,16 +129,19 @@ function parseRokuFeedSpec(xmlString as string) as Object
 
                     if arrayItem.tags[0] = categoryItem
                         itemNode = CreateObject("roSGNode", "ContentNode")
-                        '! :-) Rainwater - Remove this line
                         itemTitle = arrayItem.title
 
                         Utils_ForceSetFields(itemNode, {
                             hdPosterUrl: arrayItem.thumbnail
                             Description: arrayItem.shortDescription
+                            '! MRainwater: Update longDescription
+                            LongDescription: arrayItem.longDescription
+                            '! MRainwater: End of new lines
                             id: arrayItem.id
                             Categories: arrayItem.tags[0]
                             title: arrayItem.title
                         })
+
                         if item = "movies" or item = "shortFormVideos" or item = "tvSpecials" or item = "liveFeeds"
                             ' Add 4k option
                             'Never do like this, it' s better to check if all fields exist in json, but in sample we can skip this step
@@ -182,6 +190,9 @@ function GetEpisodeNodeFromJSON(episode)
         url: episode.content.videos[0].url
         hdPosterUrl: episode.thumbnail
         description: episode.shortDescription
+        '! MRainwater: Add new field longdescription - 29 Oct 2023
+        longdescription: episode.longDescription
+        '! MRainwater: End of new lines
     })
 
     return result
@@ -229,6 +240,9 @@ function parseRSS(xmlParser as Object) as Object
                         itemNode = CreateObject("roSGNode", "ContentNode")
                                 Utils_ForceSetFields(itemNode, {
                                     Description: ""
+                                    '! MRainwater: Create new field LongDescription
+                                    LongDescription: ""
+                                    '! MRainwater: End of new lines                                    
                                     id: ""
                                     Categories: ""
                                     title: ""

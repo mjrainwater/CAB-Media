@@ -221,7 +221,15 @@ sub SetDetailsContent(content as Object)
             m.info1.text = ConvertToStringAndJoin([content.ReleaseDate, contentDurationString])
             m.info3.text = content.shortDescriptionLine1
         end if
+
+        '! MRainwater: This is the name of the Sermon.net Playlist
         m.info2.text = info2Text
+
+        '! MRainwater - Debug Print longdescription.  I have the info, but cannot figure out how to show this -  29 Oct 2023
+        ? "Debug Print: content.longdescription="
+        ? content.longdescription
+
+        '! MRainwater - content.description is the name of the episode in the form "Watch Episode - I Will Not Fear (10/29/23)"
         m.descriptionLabel.text = content.description
         m.actorsLabel.text = ConvertToStringAndJoin(content.actors, ", ")
     else ' clear content

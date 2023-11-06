@@ -406,7 +406,12 @@ sub SGDEX_SetThemeAttribute(node, field as String, value as Object, defaultValue
     end if
 
     if m.themeDebug then ? "SGDEX_SetThemeAttribute, field="field" , value=["properValue"]"
-    node[field] = properValue
+
+    '! MRainwater (28 Oct 2023) - Fixed Warning found in debug console for nonexistent field
+    '! Added check for field invalid first
+    if node[field] <> invalid
+        node[field] = properValue
+    end if
 end sub
 
 function GetViewXPadding()

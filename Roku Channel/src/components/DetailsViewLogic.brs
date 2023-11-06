@@ -28,13 +28,14 @@ sub OnDetailsContentSet(event as Object)
     if event.GetData().TITLE = "series"
         btnsContent.Update({ children: [{ title: "Episodes", id: "episodes" }] })
     else
-        btnsContent.Update({ children: [{ title: "Play", id: "play" }] })
+        '! MRainwater - Change "Play" to "Watch Service"
+        'btnsContent.Update({ children: [{ title: "Play", id: "play" }] })
+        btnsContent.Update({ children: [{ title: "Watch Service", id: "play" }] })
     end if
 
     details = event.GetRoSGNode()
     details.buttons = btnsContent
 
-  
 end sub
 
 sub OnButtonSelected(event as Object)
