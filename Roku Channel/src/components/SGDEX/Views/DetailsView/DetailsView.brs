@@ -12,6 +12,7 @@ sub Init()
     m.info3 =            m.top.FindNode("info3")
     m.viewLayout =       m.top.FindNode("viewLayout")
     m.descriptionLabel = m.top.FindNode("description")
+    m.descriptionLabel2 = m.top.FindNode("description2")
     m.actorsLabel =      m.top.FindNode("actors")
     m.buttons =          m.top.FindNode("buttons")
     m.styledPosterArea = m.top.FindNode("styledPosterArea")
@@ -223,6 +224,7 @@ sub SetDetailsContent(content as Object)
         end if
         m.info2.text = info2Text
         m.descriptionLabel.text = content.description
+        m.descriptionLabel2.text = content.description2
         m.actorsLabel.text = ConvertToStringAndJoin(content.actors, ", ")
     else ' clear content
         SetOverhangTitle("")
@@ -231,6 +233,7 @@ sub SetDetailsContent(content as Object)
         m.info2.text = ""
         m.info3.text = ""
         m.descriptionLabel.text = ""
+        m.descriptionLabel2.text = ""
         m.actorsLabel.text = ""
     end if
 end sub
@@ -334,6 +337,7 @@ sub SGDEX_SetTheme(theme as Object)
             info3:            "color"
             actorsLabel:      "color"
             descriptionLabel: "color"
+            descriptionLabel2: "color"
         }
         focusRingColor: {
             buttons: ["focusBitmapBlendColor"]
@@ -405,6 +409,7 @@ sub SGDEX_UpdateViewUI()
 
             if m.descriptionLabel <> invalid and buttonsWidthDelta > 24
                 m.descriptionLabel.width = descriptionLabelWidth
+                m.descriptionLabel2.width = descriptionLabelWidth
                 m.actorsLabel.width = descriptionLabelWidth
                 m.buttons.itemSize = [descriptionLabelWidth, 48]
             end if

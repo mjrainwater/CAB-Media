@@ -47,6 +47,7 @@ sub GetContent()
                 Utils_ForceSetFields(itemNode, {
                     hdPosterUrl: "pkg:/images/feed_too_large.jpg"
                     Description: "Feed is too large"
+                    Description2: ""
                     id: "0"
                     Categories: "Feed is too large"
                     title: "Feed is too large"
@@ -69,6 +70,7 @@ sub GetContent()
                 Utils_ForceSetFields(itemNode, {
                     hdPosterUrl: ""
                     Description: "Cannot obtain Feed"
+                    Description2: ""
                     id: "0"
                     Categories: "Cannot obtain Feed"
                     title: "Cannot obtain Feed"
@@ -130,6 +132,7 @@ function parseRokuFeedSpec(xmlString as string) as Object
                         Utils_ForceSetFields(itemNode, {
                             hdPosterUrl: arrayItem.thumbnail
                             Description: arrayItem.shortDescription
+                            Description2: arrayItem.longDescription
                             id: arrayItem.id
                             Categories: arrayItem.tags[0]
                             title: arrayItem.title
@@ -182,6 +185,7 @@ function GetEpisodeNodeFromJSON(episode)
         url: episode.content.videos[0].url
         hdPosterUrl: episode.thumbnail
         description: episode.shortDescription
+        description2: episode.longDescription
     })
 
     return result

@@ -144,11 +144,17 @@
 
                 <LayoutGroup
                     itemSpacings="[40]"
+                    layoutDirection="vert"
                     translation="[0, 208]">
                     <Label
                         id="description"
                         wrap="true"
-                        maxLines="5"
+                        maxLines="2"
+                    />
+                    <Label
+                        id="description2"
+                        wrap="true"
+                        maxLines="8"
                     />
 
                     <Label

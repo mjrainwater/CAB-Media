@@ -25,7 +25,12 @@
             />
             <Label 
                 id="description" 
-                maxLines="3" 
+                maxLines="1" 
+                wrap="true"
+            />
+            <Label 
+                id="description2" 
+                maxLines="2" 
                 wrap="true"
             />
         </LayoutGroup>
