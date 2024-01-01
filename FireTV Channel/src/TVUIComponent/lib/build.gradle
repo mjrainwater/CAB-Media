@@ -1,0 +1,106 @@
+/**
+ * Copyright 2015-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * A copy of the License is located at
+ *
+ *     http://aws.amazon.com/apache2.0/
+ *
+ * or in the "license" file accompanying this file. This file is distributed
+ * on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either
+ * express or implied. See the License for the specific language governing
+ * permissions and limitations under the License.
+ */
+apply plugin: 'com.android.library'
+apply plugin: 'jacoco'
+apply from: '../config/quality.gradle'
+//apply plugin: 'me.tatarka.retrolambda'
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion '28.0.2'
+
+    defaultConfig {
+        minSdkVersion 21
+        //noinspection ExpiredTargetSdkVersion
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug{
+            testCoverageEnabled = true
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    packagingOptions {
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/services/com.fasterxml.jackson.core.JsonFactory'
+        exclude 'META-INF/services/com.fasterxml.jackson.core.ObjectCodec'
+    }
+}
+
+jacoco {
+    version "0.7.1.201405082137"
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.android.support:recyclerview-v7:23.1.1'
+    implementation 'com.android.support:leanback-v17:23.1.1'
+    implementation 'com.android.support:appcompat-v7:23.1.1'
+    implementation 'com.android.support:support-v4:23.1.1'
+
+    implementation 'com.fasterxml.jackson.core:jackson-core:2.6.0'
+    implementation 'com.fasterxml.jackson.core:jackson-annotations:2.6.0'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.6.0'
+    implementation ('org.simpleframework:simple-xml:2.7.1') {
+        exclude module: 'stax'
+        exclude module: 'stax-api'
+        exclude module: 'xpp3'
+    }
+
+
+    androidTestImplementation 'com.jayway.android.robotium:robotium-solo:5.3.1'
+
+    androidTestImplementation 'junit:junit:4.12'
+    androidTestImplementation 'org.mockito:mockito-core:1.9.5'
+    // Set this dependency to use JUnit 4 rules
+    androidTestImplementation 'com.android.support.test:rules:0.4.1'
+
+    androidTestImplementation('com.android.support.test:runner:0.4.1') {
+        exclude module: 'support-annotations'
+    }
+    androidTestImplementation 'com.google.dexmaker:dexmaker:1.2'
+    androidTestImplementation 'com.google.dexmaker:dexmaker-mockito:1.2'
+
+    implementation project(':Utils')
+    implementation project(':ModuleInterface')
+    implementation project(':AuthInterface')
+    implementation project(':AdsInterface')
+    implementation project(':AnalyticsInterface')
+    implementation project(':UAMP')
+    implementation project(':ContentBrowser')
+    // Global font support
+    implementation project(':Calligraphy')
+}
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        //classpath 'me.tatarka:gradle-retrolambda:3.2.3'
+    }
+}
